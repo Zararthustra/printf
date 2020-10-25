@@ -6,6 +6,13 @@
 #include <stdlib.h>
 #include <stdarg.h>
 
+/**
+ * struct fspec_s - format specifier structure
+ * @c: character after the '%'
+ * @f: pointer to func
+ *
+ */
+
 typedef struct fspec_s
 {
 	char c;
@@ -13,7 +20,7 @@ typedef struct fspec_s
 } fspec_t;
 
 int _printf(const char *format, ...);
-int is_it_format_spec(const char *format, fspec_t valid_fspec[], va_list cur_arg);
+int is_fspec(const char *format, fspec_t val_fspec[], va_list cur_arg);
 
 int _putchar(char a);
 int _putstring(char *str);
