@@ -1,6 +1,15 @@
 #include "holberton.h"
 
-int is_it_format_spec(const char *format, fspec_t valid_fspec[], va_list cur_arg)
+/**
+  *is_fspec - checks if a char the a format specifier \
+  and do appropriate action if so
+  * @format: a pointer to the treated char
+  * @val_fspec: the array of valid fspec
+  * @cur_arg: the current argument
+  *
+  * Return: 0 if normal char, 1 if a format specifier, -1 if error
+  **/
+int is_fspec(const char *format, fspec_t val_fspec[], va_list cur_arg)
 {
 	int j;
 
@@ -17,7 +26,7 @@ int is_it_format_spec(const char *format, fspec_t valid_fspec[], va_list cur_arg
 			{
 				valid_fspec[j].f(cur_arg);
 				return (1);
-			}	
+			}
 			++j;
 		}
 		return (-1);
@@ -25,6 +34,12 @@ int is_it_format_spec(const char *format, fspec_t valid_fspec[], va_list cur_arg
 	return (0);
 }
 
+/**
+  * _printf - our printf function
+  * @format: the format string
+  *
+  * Return: the number of printed char
+  **/
 int _printf(const char *format, ...)
 {
 	va_list cur_arg;
