@@ -2,6 +2,7 @@
 
 int main()
 {
-	_printf("%w Hello %c world % !\n %c %", 'H');
+	printf("Real printf : ");
+	printf("My printf : ");
 	return (0);
 }
