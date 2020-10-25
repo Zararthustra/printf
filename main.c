@@ -2,7 +2,6 @@
 
 int main()
 {
-	printf("Real printf : ");
-	printf("My printf : ");
+	printf("%s", (char *)NULL);
 	return (0);
 }

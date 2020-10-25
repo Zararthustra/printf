@@ -3,11 +3,7 @@
 int is_it_format_spec(const char *format, fspec_t valid_fspec[], va_list cur_arg)
 {
 	int j;
-/*
-	if (format
 
-
-*/
 	if (format == 0)
 		return (-1);
 	if (*format == '%')
@@ -37,6 +33,7 @@ int _printf(const char *format, ...)
 	fspec_t valid_fspec[] = {
 		{'c', print_c},
 		{'s', print_s},
+		{'%', print_percent},
 		{0, NULL}
 	};
 
