@@ -1,5 +1,26 @@
 #include "holberton.h"
 
+/**
+ * nb_len - calculate the len of a nb
+ * @nb: number
+ *
+ * Return: the len of nb (+1 for minus sign)
+ */
+int nb_len(long int nb)
+{
+	int len;
+
+	len = 0;
+	if (nb <= 0)
+		len = len + 1;
+	while (nb != 0)
+	{
+		nb = nb / 10;
+		len++;
+	}
+	return (len);
+}
+
 int	lenbloc(const char *s)
 {
 	int	l = 0;

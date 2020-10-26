@@ -50,6 +50,7 @@ int	_printf(const char *format, ...)
 				{'c', print_c},
 				{'s', print_s},
 				{'%', print_percent},
+				{'r', print_r},
 				{0, NULL}
 				};
 	int		i;

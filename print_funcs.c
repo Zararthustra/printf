@@ -3,6 +3,7 @@
 /**
   * print_percent - print a percent
   * @cur_arg: the current av arg
+  * @ult: the ultimate string
   **/
 void	print_percent(va_list cur_arg, char **ult)
 {
@@ -13,6 +14,7 @@ void	print_percent(va_list cur_arg, char **ult)
 /**
   * print_s - print a string
   * @cur_arg: the current av arg
+  * @ult: the ultimate string
   **/
 void	print_s(va_list cur_arg, char **ult)
 {
@@ -20,8 +22,28 @@ void	print_s(va_list cur_arg, char **ult)
 }
 
 /**
+  * print_r - print a string in reverse
+  * @cur_arg: the current av arg
+  * @ult: the ultimate string
+  **/
+void	print_r(va_list cur_arg, char **ult)
+{
+	char	*s;
+	char	*r;
+	int	l;
+
+	s = va_arg(cur_arg, char *);
+	l = _strlen(s);
+	r = malloc(l + 1);
+	_strncpy(r, s, l + 1);
+	rev_string(r);
+	*ult = concat_free(*ult, r, 2);
+}
+
+/**
   * print_c - print a char
   * @cur_arg: the current av arg
+  * @ult: the ultimate string
   **/
 void	print_c(va_list cur_arg, char **ult)
 {
@@ -40,28 +62,8 @@ void	print_c(va_list cur_arg, char **ult)
 
 /**
  *
- *
+  * @ult: the ultimate string
  */
-
-int nb_len(long int nb)
-{
-	int len;
-
-	len = 0;
-	if (nb <= 0)
-		len = len + 1;
-	while (nb != 0)
-	{
-		nb = nb / 10;
-		len++;
-	}
-	return (len);
-}
-
-/**
- *
- */
-
 void	print_int(va_list cur_arg, char **ult)
 {
 	char *s;

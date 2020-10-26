@@ -145,3 +145,29 @@ char	*_memcpy(char *dest, char *src, unsigned int n)
 	}
 	return (dest);
 }
+
+/**
+ * rev_string - reverse a string
+ * @s: the string to reverse
+ *
+ **/
+void	rev_string(char *s)
+{
+	char *sr;
+	char c;
+
+	sr = s;
+	if (!s)
+		return;
+	while (*sr)
+		++sr;
+	--sr;
+	while (s < sr && *s)
+	{
+		c = *s;
+		*s = *sr;
+		*sr = c;
+		++s;
+		--sr;
+	}
+}
