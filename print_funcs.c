@@ -55,6 +55,11 @@ int	print_r(va_list cur_arg, char **ult)
 	_strncpy(r, s, l + 1);
 	rev_string(r);
 	*ult = concat_free(*ult, r, 2);
+	if (!(*ult))
+	{
+		_putstring("Malloc failed\n");
+		return (-1);
+	}
 	return (0);
 }
 
@@ -118,6 +123,11 @@ int	print_int(va_list cur_arg, char **ult)
 	}
 	s[len] = '\0';
 	*ult = concat_free(*ult, s, 2);
+	if (!(*ult))
+	{
+		_putstring("Malloc failed\n");
+		return (-1);
+	}
 	return (0);
 }
 
@@ -151,6 +161,11 @@ int	print_u(va_list cur_arg, char **ult)
 	}
 	s[len] = '\0';
 	*ult = concat_free(*ult, s, 2);
+	if (!(*ult))
+	{
+		_putstring("Malloc failed\n");
+		return (-1);
+	}
 	return (0);
 }
 
@@ -184,6 +199,11 @@ int	print_o(va_list cur_arg, char **ult)
 	}
 	s[len] = '\0';
 	*ult = concat_free(*ult, s, 2);
+	if (!(*ult))
+	{
+		_putstring("Malloc failed\n");
+		return (-1);
+	}
 	return (0);
 }
 
@@ -217,6 +237,11 @@ int	print_x(va_list cur_arg, char **ult)
 	}
 	s[len] = '\0';
 	*ult = concat_free(*ult, s, 2);
+	if (!(*ult))
+	{
+		_putstring("Malloc failed\n");
+		return (-1);
+	}
 	return (0);
 }
 
@@ -251,6 +276,11 @@ int	print_X(va_list cur_arg, char **ult)
 	}
 	s[len] = '\0';
 	*ult = concat_free(*ult, s, 2);
+	if (!(*ult))
+	{
+		_putstring("Malloc failed\n");
+		return (-1);
+	}
 	return (0);
 }
 
@@ -285,5 +315,10 @@ int	print_b(va_list cur_arg, char **ult)
 	}
 	s[len] = '\0';
 	*ult = concat_free(*ult, s, 2);
+	if (!(*ult))
+	{
+		_putstring("Malloc failed\n");
+		return (-1);
+	}
 	return (0);
 }
