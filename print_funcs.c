@@ -31,7 +31,7 @@ int	print_s(va_list cur_arg, char **ult)
 		return (-1);
 	}
 	return (0);
-}}
+}
 
 /**
   * print_r - print a string in reverse
@@ -225,7 +225,7 @@ int	print_x(va_list cur_arg, char **ult)
   * @cur_arg: the current av arg
   * @ult: the ultimate string
   **/
-void	print_X(va_list cur_arg, char **ult)
+int	print_X(va_list cur_arg, char **ult)
 {
 	char *s;
 	unsigned int nb;
