@@ -48,7 +48,7 @@ int nb_len(long int nb)
 	int len;
 
 	len = 0;
-	if (nb < 0)
+	if (nb <= 0)
 		len = len + 1;
 	while (nb != 0)
 	{
@@ -78,6 +78,8 @@ void	print_int(va_list cur_arg, char **ult)
 		nb = -(nb);
 		s[0] = '-';
 	}
+	else if (nb == 0)
+		s[0] = '0';
 	while (nb != 0)
 	{
 		s[i] = (nb % 10) + '0';
