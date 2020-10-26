@@ -1,11 +1,11 @@
 #include "holberton.h"
 
 /**
-<<<<<<< HEAD
-  * print_percent - print a percent
-  * @cur_arg: the current av arg
-  * @ult: the ultimate string
-  **/
+ * print_percent - print a percent
+ * @cur_arg: the current av arg
+ * @ult: the ultimate string
+ * Return: -1 if error, 0 otherwise
+ **/
 int	print_percent(va_list cur_arg, char **ult)
 {
 	(void)cur_arg;
@@ -19,10 +19,11 @@ int	print_percent(va_list cur_arg, char **ult)
 }
 
 /**
-  * print_s - print a string
-  * @cur_arg: the current av arg
-  * @ult: the ultimate string
-  **/
+ * print_s - print a string
+ * @cur_arg: the current av arg
+ * @ult: the ultimate string
+ * Return: -1 if error, 0 otherwise
+ **/
 int	print_s(va_list cur_arg, char **ult)
 {
 	*ult = concat_free(*ult, va_arg(cur_arg, char *), 1);
@@ -35,10 +36,11 @@ int	print_s(va_list cur_arg, char **ult)
 }
 
 /**
-  * print_r - print a string in reverse
-  * @cur_arg: the current av arg
-  * @ult: the ultimate string
-  **/
+ * print_r - print a string in reverse
+ * @cur_arg: the current av arg
+ * @ult: the ultimate string
+ * Return: -1 if error, 0 otherwise
+ **/
 int	print_r(va_list cur_arg, char **ult)
 {
 	char	*s;
@@ -65,10 +67,11 @@ int	print_r(va_list cur_arg, char **ult)
 }
 
 /**
-  * print_c - print a char
-  * @cur_arg: the current av arg
-  * @ult: the ultimate string
-  **/
+ * print_c - print a char
+ * @cur_arg: the current av arg
+ * @ult: the ultimate string
+ * Return: -1 if error, 0 otherwise
+ **/
 int	print_c(va_list cur_arg, char **ult)
 {
 	char	c;
@@ -91,15 +94,11 @@ int	print_c(va_list cur_arg, char **ult)
 }
 
 /**
- *
-  * @ult: the ultimate string
-=======
  * print_int - print an int
  * @cur_arg: current va_arg
  * @ult: the ultimate string
- * Return: int
->>>>>>> b597e22cec777da0e5a09a50a2ebb1bfc411a3fd
- */
+ * Return: -1 if error, 0 otherwise
+ **/
 int	print_int(va_list cur_arg, char **ult)
 {
 	char *s;
@@ -142,7 +141,7 @@ int	print_int(va_list cur_arg, char **ult)
  * print_u - print a unsigned int
  * @cur_arg: the current av arg
  * @ult: the ultimate string
- * Return: unsigned int
+ * Return: -1 if error, 0 otherwise
  **/
 int	print_u(va_list cur_arg, char **ult)
 {
@@ -181,7 +180,7 @@ int	print_u(va_list cur_arg, char **ult)
  * print_o - print an octal
  * @cur_arg: the current av arg
  * @ult: the ultimate string
- * Return: octal
+ * Return: -1 if error, 0 otherwise
  **/
 int	print_o(va_list cur_arg, char **ult)
 {
@@ -220,7 +219,7 @@ int	print_o(va_list cur_arg, char **ult)
  * print_x - print a int in hex
  * @cur_arg: the current av arg
  * @ult: the ultimate string
- * Return: hexadecimal
+ * Return: -1 if error, 0 otherwise
  **/
 int	print_x(va_list cur_arg, char **ult)
 {
@@ -259,7 +258,7 @@ int	print_x(va_list cur_arg, char **ult)
  * print_X - print an hexa in uppercase
  * @cur_arg: the current av arg
  * @ult: the ultimate string
- * Return: hexa uppercase
+ * Return: -1 if error, 0 otherwise
  **/
 int	print_X(va_list cur_arg, char **ult)
 {
@@ -294,13 +293,13 @@ int	print_X(va_list cur_arg, char **ult)
 	}
 	return (0);
 }
-<<<<<<< HEAD
 
 /**
-  * print_b - print a unsigned int
-  * @cur_arg: the current av arg
-  * @ult: the ultimate string
-  **/
+ * print_b - print a unsigned int
+ * @cur_arg: the current av arg
+ * @ult: the ultimate string
+ * Return: -1 if error, 0 otherwise
+ **/
 int	print_b(va_list cur_arg, char **ult)
 {
 	char *s;
@@ -334,5 +333,3 @@ int	print_b(va_list cur_arg, char **ult)
 	}
 	return (0);
 }
-=======
->>>>>>> b597e22cec777da0e5a09a50a2ebb1bfc411a3fd
