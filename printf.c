@@ -9,7 +9,7 @@
  *
  * Return: 0 if normal char, 1 if a format specifier, -1 if error
  **/
-int	w_fspec(const char *format, fspec_t val_fspec[], va_list cur_arg, char **ult)
+int w_fspec(const char *format, fspec_t val_fspec[], va_list cur_arg, char **ult)
 {
 	int	j;
 
@@ -24,7 +24,7 @@ int	w_fspec(const char *format, fspec_t val_fspec[], va_list cur_arg, char **ult
 		{
 			if (*(format + 1) == val_fspec[j].c)
 			{
-				if(val_fspec[j].f(cur_arg, ult) == -1)
+				if (val_fspec[j].f(cur_arg, ult) == -1)
 					return (-1);
 				return (1);
 			}

@@ -1,6 +1,7 @@
 #include "holberton.h"
 
 /**
+<<<<<<< HEAD
   * print_percent - print a percent
   * @cur_arg: the current av arg
   * @ult: the ultimate string
@@ -92,6 +93,12 @@ int	print_c(va_list cur_arg, char **ult)
 /**
  *
   * @ult: the ultimate string
+=======
+ * print_int - print an int
+ * @cur_arg: current va_arg
+ * @ult: the ultimate string
+ * Return: int
+>>>>>>> b597e22cec777da0e5a09a50a2ebb1bfc411a3fd
  */
 int	print_int(va_list cur_arg, char **ult)
 {
@@ -132,10 +139,11 @@ int	print_int(va_list cur_arg, char **ult)
 }
 
 /**
-  * print_u - print a unsigned int
-  * @cur_arg: the current av arg
-  * @ult: the ultimate string
-  **/
+ * print_u - print a unsigned int
+ * @cur_arg: the current av arg
+ * @ult: the ultimate string
+ * Return: unsigned int
+ **/
 int	print_u(va_list cur_arg, char **ult)
 {
 	char *s;
@@ -170,10 +178,11 @@ int	print_u(va_list cur_arg, char **ult)
 }
 
 /**
-  * print_o - print a unsigned int
-  * @cur_arg: the current av arg
-  * @ult: the ultimate string
-  **/
+ * print_o - print an octal
+ * @cur_arg: the current av arg
+ * @ult: the ultimate string
+ * Return: octal
+ **/
 int	print_o(va_list cur_arg, char **ult)
 {
 	char *s;
@@ -208,10 +217,11 @@ int	print_o(va_list cur_arg, char **ult)
 }
 
 /**
-  * print_x - print a int in hex
-  * @cur_arg: the current av arg
-  * @ult: the ultimate string
-  **/
+ * print_x - print a int in hex
+ * @cur_arg: the current av arg
+ * @ult: the ultimate string
+ * Return: hexadecimal
+ **/
 int	print_x(va_list cur_arg, char **ult)
 {
 	char *s;
@@ -246,10 +256,11 @@ int	print_x(va_list cur_arg, char **ult)
 }
 
 /**
-  * print_X - print a unsigned int
-  * @cur_arg: the current av arg
-  * @ult: the ultimate string
-  **/
+ * print_X - print an hexa in uppercase
+ * @cur_arg: the current av arg
+ * @ult: the ultimate string
+ * Return: hexa uppercase
+ **/
 int	print_X(va_list cur_arg, char **ult)
 {
 	char *s;
@@ -283,6 +294,7 @@ int	print_X(va_list cur_arg, char **ult)
 	}
 	return (0);
 }
+<<<<<<< HEAD
 
 /**
   * print_b - print a unsigned int
@@ -322,3 +334,5 @@ int	print_b(va_list cur_arg, char **ult)
 	}
 	return (0);
 }
+=======
+>>>>>>> b597e22cec777da0e5a09a50a2ebb1bfc411a3fd
