@@ -45,6 +45,8 @@ int	_printf(const char *format, ...)
 	char		*ult;
 	va_list		cur_arg;
 	fspec_t		val_fspec[] = {
+				{'d', print_int},
+				{'i', print_int},
 				{'c', print_c},
 				{'s', print_s},
 				{'%', print_percent},
