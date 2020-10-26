@@ -28,7 +28,7 @@ void	print_c(va_list cur_arg, char **ult)
 	int	len;
 
 	len = _strlen(*ult);
-	*ult = _realloc(*ult, len, len + 2);
+	*ult = _realloc(*ult, len, len + 2); //do if cur_arg = '\0'
 	(*ult)[len] = va_arg(cur_arg, int);
 	(*ult)[len + 1] = '\0';
 }

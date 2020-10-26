@@ -1,20 +1,5 @@
 #include "holberton.h"
 
-int	init_len(const char *s)
-{
-	int	i = 0;
-
-	if (!s)
-		return (0);
-	while (s[i])
-	{
-		if (s[i] == '%')
-			return (i);
-		++i;
-	}
-	return (i);
-}
-
 /**
  *is_fspec - checks if a char the a format specifier \
  and do appropriate action if so
@@ -24,9 +9,9 @@ int	init_len(const char *s)
  *
  * Return: 0 if normal char, 1 if a format specifier, -1 if error
  **/
-int is_fspec(const char *format, fspec_t val_fspec[], va_list cur_arg, char **ult)
+int	w_fspec(const char *format, fspec_t val_fspec[], va_list cur_arg, char **ult)
 {
-	int j;
+	int	j;
 
 	if (format == 0)
 		return (-1);
@@ -55,29 +40,29 @@ int is_fspec(const char *format, fspec_t val_fspec[], va_list cur_arg, char **ul
  *
  * Return: the number of printed char
  **/
-int _printf(const char *format, ...)
+int	_printf(const char *format, ...)
 {
-	va_list	cur_arg;
-	fspec_t	valid_fspec[] = {
-		{'c', print_c},
-		{'s', print_s},
-		{'%', print_percent},
-		{0, NULL}
-	};
-	int	i;
-	char	*ultimate;
+	char		*ult;
+	va_list		cur_arg;
+	fspec_t		val_fspec[] = {
+				{'c', print_c},
+				{'s', print_s},
+				{'%', print_percent},
+				{0, NULL}
+				};
+	int		i;
 
 	if (!format)
 		return (-1);
 	va_start(cur_arg, format);
-	ultimate = create_array(1, 0);
+	ult = create_array(1, 0);
 	i = 0;
 	while (format[i])
 	{
-		ultimate = concat_sbloc(ultimate, format + i, &i);
+		ult = concat_sbloc(ult, format + i, &i);
 		if (format[i] == '%')
 		{
-			if (is_fspec(format + i, valid_fspec, cur_arg, &ultimate) == -1)
+			if (w_fspec(format + i, val_fspec, cur_arg, &ult) == -1)
 			{
 				_printf("Error\n");
 				return (-1);
@@ -86,8 +71,8 @@ int _printf(const char *format, ...)
 		}
 	}
 	va_end(cur_arg);
-	_putstring(ultimate);
-	i = _strlen(ultimate);
-	free(ultimate);
+	_putstring(ult);
+	i = _strlen(ult);
+	free(ult);
 	return (i);
 }

@@ -1,7 +1,13 @@
-#include "../holberton.h"
-
-int main()
+#include "./holberton.h"
+#include <limits.h>
+#include <stdio.h>
+/**
+ * main - Entry point
+ *
+ * Return: Always 0
+ */
+int main(void)
 {
-	printf("ret = %d\n",_printf("blabla%sblabla%cbla%%blabla%s", "hoho", 'A', "\n")); 
+	printf("classic %c %s", 'V', "Vendetta");
 	return (0);
 }
