@@ -32,6 +32,7 @@ void	print_r(va_list cur_arg, char **ult);
 void	print_c(va_list cur_arg, char **ult);
 void	print_percent(va_list cur_arg, char **ult);
 void	print_int(va_list cur_arg, char **ult);
+void	print_p(va_list cur_arg, char **ult);
 void	print_u(va_list cur_arg, char **ult);
 void	print_o(va_list cur_arg, char **ult);
 void	print_x(va_list cur_arg, char **ult);

@@ -55,6 +55,7 @@ int	_printf(const char *format, ...)
 				{'o', print_o},
 				{'x', print_x},
 				{'X', print_X},
+				{'b', print_b},
 				{0, NULL}
 				};
 	int		i;
