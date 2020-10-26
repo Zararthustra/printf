@@ -4,6 +4,7 @@
   * print_percent - print a percent
   * @cur_arg: the current av arg
   * @ult: the ultimate string
+  * Return: percent, else -1
   **/
 int	print_percent(va_list cur_arg, char **ult)
 {
@@ -21,6 +22,7 @@ int	print_percent(va_list cur_arg, char **ult)
   * print_s - print a string
   * @cur_arg: the current av arg
   * @ult: the ultimate string
+  * Return: string, else -1
   **/
 int	print_s(va_list cur_arg, char **ult)
 {
@@ -37,6 +39,7 @@ int	print_s(va_list cur_arg, char **ult)
   * print_r - print a string in reverse
   * @cur_arg: the current av arg
   * @ult: the ultimate string
+  * Return: rev string, else -1
   **/
 int	print_r(va_list cur_arg, char **ult)
 {
@@ -62,6 +65,7 @@ int	print_r(va_list cur_arg, char **ult)
   * print_c - print a char
   * @cur_arg: the current av arg
   * @ult: the ultimate string
+  * Return: character, else -1
   **/
 int	print_c(va_list cur_arg, char **ult)
 {
@@ -88,6 +92,7 @@ int	print_c(va_list cur_arg, char **ult)
   * print_b - print a unsigned int
   * @cur_arg: the current av arg
   * @ult: the ultimate string
+  * Return: unsigned int, else -1
   **/
 int	print_b(va_list cur_arg, char **ult)
 {

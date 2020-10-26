@@ -3,7 +3,7 @@
 /**
  * nb_len - calculate the len of a nb
  * @nb: number
- *
+ * @base: 10 for int, 8 octal, 16 hex, 2 bin
  * Return: the len of nb (+1 for minus sign)
  */
 int nb_len(long int nb, int base)
@@ -21,6 +21,12 @@ int nb_len(long int nb, int base)
 	return (len);
 }
 
+/**
+ * lenbloc - get the length of a string bloc
+ * @s: string bloc
+ * Return: length
+ */
+
 int	lenbloc(const char *s)
 {
 	int	l = 0;
@@ -33,11 +39,11 @@ int	lenbloc(const char *s)
 }
 
 /**
- * concat_free - a function that concatenates two \
- allocated strings and free them
- * @s1: first string
- * @s2: second string
- *
+ * concat_sbloc - a function that concatenates two
+ * allocated strings and free them
+ * @ult: first string
+ * @rest: second string
+ * @i: pointer
  * Return: the newly created concat. string
  **/
 char	*concat_sbloc(char *ult, const char *rest, int *i)
@@ -62,7 +68,7 @@ char	*concat_sbloc(char *ult, const char *rest, int *i)
  * concat_free - a function that concatenates two strings and free them
  * @s1: first allocated string
  * @s2: second allocated string
- *
+ * @select: free selector
  * Return: the newly allocated concat. string
  **/
 char	*concat_free(char *s1, char *s2, int select)
@@ -88,6 +94,12 @@ char	*concat_free(char *s1, char *s2, int select)
 	return (cc);
 }
 
+/**
+ * i_to_hex - convert int to hexadecimal
+ * @i: int to convert
+ * @x: char to convert
+ * Return: converted int
+ */
 char	i_to_hex(int i, char x)
 {
 	if (i >= 0 && i <= 9)

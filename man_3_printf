@@ -19,32 +19,23 @@ The format string is composed of zero or more arguments which are converted. Eac
 
 .B Conversion specifier
 
-.B d, i 
-- print an integer
+.B d, i - print an integer
 
-.B c 
-- print a character
+.B c - print a character
 
-.B s 
-- print a string
+.B s - print a string
 
-.B o 
-- print an octal
+.B o - print an octal
 
-.B u 
-- print an unsigned decimal
+.B u - print an unsigned decimal
 
-.B x 
-- print an hexadecimal (lowercase)
+.B x - print an hexadecimal (lowercase)
 
-.B X 
-- print an hexadecimal (uppercase)
+.B X - print an hexadecimal (uppercase)
 
-.B p 
-- print a pointer
+.B p - print a pointer
 
-.B % 
-- print a percent sign
+.B % - print a percent sign
 
 .SH BUGS
 

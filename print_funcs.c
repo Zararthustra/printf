@@ -1,8 +1,10 @@
 #include "holberton.h"
 
 /**
- *
-  * @ult: the ultimate string
+ * print_int - print an int
+ * @cur_arg: current va_arg
+ * @ult: the ultimate string
+ * Return: int
  */
 int	print_int(va_list cur_arg, char **ult)
 {
@@ -38,10 +40,11 @@ int	print_int(va_list cur_arg, char **ult)
 }
 
 /**
-  * print_u - print a unsigned int
-  * @cur_arg: the current av arg
-  * @ult: the ultimate string
-  **/
+ * print_u - print a unsigned int
+ * @cur_arg: the current av arg
+ * @ult: the ultimate string
+ * Return: unsigned int
+ **/
 int	print_u(va_list cur_arg, char **ult)
 {
 	char *s;
@@ -71,10 +74,11 @@ int	print_u(va_list cur_arg, char **ult)
 }
 
 /**
-  * print_o - print a unsigned int
-  * @cur_arg: the current av arg
-  * @ult: the ultimate string
-  **/
+ * print_o - print an octal
+ * @cur_arg: the current av arg
+ * @ult: the ultimate string
+ * Return: octal
+ **/
 int	print_o(va_list cur_arg, char **ult)
 {
 	char *s;
@@ -104,10 +108,11 @@ int	print_o(va_list cur_arg, char **ult)
 }
 
 /**
-  * print_x - print a int in hex
-  * @cur_arg: the current av arg
-  * @ult: the ultimate string
-  **/
+ * print_x - print a int in hex
+ * @cur_arg: the current av arg
+ * @ult: the ultimate string
+ * Return: hexadecimal
+ **/
 int	print_x(va_list cur_arg, char **ult)
 {
 	char *s;
@@ -137,10 +142,11 @@ int	print_x(va_list cur_arg, char **ult)
 }
 
 /**
-  * print_X - print a unsigned int
-  * @cur_arg: the current av arg
-  * @ult: the ultimate string
-  **/
+ * print_X - print an hexa in uppercase
+ * @cur_arg: the current av arg
+ * @ult: the ultimate string
+ * Return: hexa uppercase
+ **/
 int	print_X(va_list cur_arg, char **ult)
 {
 	char *s;
