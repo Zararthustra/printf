@@ -37,6 +37,7 @@ void	print_u(va_list cur_arg, char **ult);
 void	print_o(va_list cur_arg, char **ult);
 void	print_x(va_list cur_arg, char **ult);
 void	print_X(va_list cur_arg, char **ult);
+void	print_b(va_list cur_arg, char **ult);
 
 int	_putchar(char a);
 int	_putstring(char *str);
