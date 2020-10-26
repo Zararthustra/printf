@@ -25,10 +25,15 @@ void	print_s(va_list cur_arg, char **ult)
   **/
 void	print_c(va_list cur_arg, char **ult)
 {
+	char	c;
 	int	len;
 
 	len = _strlen(*ult);
-	*ult = _realloc(*ult, len, len + 2); //do if cur_arg = '\0'
-	(*ult)[len] = va_arg(cur_arg, int);
-	(*ult)[len + 1] = '\0';
+	c = va_arg(cur_arg, int);
+	if (c)
+	{
+		*ult = _realloc(*ult, len, len + 2);
+		(*ult)[len] = c;
+		(*ult)[len + 1] = '\0';
+	}
 }
