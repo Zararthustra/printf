@@ -21,10 +21,7 @@ int _putstring(char *str)
 {
 	if (!str)
 		return (-1);
-	while (*str != '\0')
-	{
-		_putchar(*str++);
-	}
+	write(1, str, _strlen(str));
 	return (1);
 }
 
