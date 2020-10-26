@@ -1,17 +1,17 @@
 #include "holberton.h"
 
 /**
-  *is_fspec - checks if a char the a format specifier \
-  and do appropriate action if so
-  * @format: a pointer to the treated char
-  * @val_fspec: the array of valid fspec
-  * @cur_arg: the current argument
-  *
-  * Return: 0 if normal char, 1 if a format specifier, -1 if error
-  **/
-int is_fspec(const char *format, fspec_t val_fspec[], va_list cur_arg)
+ *is_fspec - checks if a char the a format specifier \
+ and do appropriate action if so
+ * @format: a pointer to the treated char
+ * @val_fspec: the array of valid fspec
+ * @cur_arg: the current argument
+ *
+ * Return: 0 if normal char, 1 if a format specifier, -1 if error
+ **/
+int	w_fspec(const char *format, fspec_t val_fspec[], va_list cur_arg, char **ult)
 {
-	int j;
+	int	j;
 
 	if (format == 0)
 		return (-1);
@@ -20,11 +20,11 @@ int is_fspec(const char *format, fspec_t val_fspec[], va_list cur_arg)
 		if (*(format + 1) == 0)
 			return (-1);
 		j = 0;
-		while (valid_fspec[j].c != 0)
+		while (val_fspec[j].c != 0)
 		{
-			if (*(format + 1) == valid_fspec[j].c)
+			if (*(format + 1) == val_fspec[j].c)
 			{
-				valid_fspec[j].f(cur_arg);
+				val_fspec[j].f(cur_arg, ult);
 				return (1);
 			}
 			++j;
@@ -35,39 +35,44 @@ int is_fspec(const char *format, fspec_t val_fspec[], va_list cur_arg)
 }
 
 /**
-  * _printf - our printf function
-  * @format: the format string
-  *
-  * Return: the number of printed char
-  **/
-int _printf(const char *format, ...)
+ * _printf - our printf function
+ * @format: the format string
+ *
+ * Return: the number of printed char
+ **/
+int	_printf(const char *format, ...)
 {
-	va_list cur_arg;
-	int i;
-	int j;
-	fspec_t valid_fspec[] = {
-		{'c', print_c},
-		{'s', print_s},
-		{'%', print_percent},
-		{0, NULL}
-	};
+	char		*ult;
+	va_list		cur_arg;
+	fspec_t		val_fspec[] = {
+				{'c', print_c},
+				{'s', print_s},
+				{'%', print_percent},
+				{0, NULL}
+				};
+	int		i;
 
+	if (!format)
+		return (-1);
 	va_start(cur_arg, format);
+	ult = create_array(1, 0);
 	i = 0;
 	while (format[i])
 	{
-		j = is_it_format_spec(format + i, valid_fspec, cur_arg);
-		if (j == -1)
+		ult = concat_sbloc(ult, format + i, &i);
+		if (format[i] == '%')
 		{
-			printf("error\n");
-			return (-1);
+			if (w_fspec(format + i, val_fspec, cur_arg, &ult) == -1)
+			{
+				_printf("Error\n");
+				return (-1);
+			}
+			i += 2;
 		}
-		else if (j == 1)
-			i++;
-		else
-			_putchar(format[i]);
-		++i;
 	}
 	va_end(cur_arg);
+	_putstring(ult);
+	i = _strlen(ult);
+	free(ult);
 	return (i);
 }
