@@ -49,7 +49,7 @@ int	_printf(const char *format, ...)
 	fspec_t		val_fspec[] = {{'d', print_int}, {'i', print_int},
 				{'c', print_c}, {'s', print_s},
 				{'S', print_S}, {'%', print_percent},
-				{'r', print_r},
+				{'r', print_r}, {'p', print_p},
 				{'u', print_u},
 				{'o', print_o},
 				{'x', print_x},

@@ -59,3 +59,12 @@ int	print_S(va_list cur_arg, char **ult)
 	}
 	return (0);
 }
+
+/**
+ *
+ *
+ *
+ */
+int	print_p(va_list cur_arg, char **ult)
+{
+}
