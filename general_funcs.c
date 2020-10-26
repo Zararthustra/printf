@@ -21,10 +21,7 @@ int _putstring(char *str)
 {
 	if (!str)
 		return (-1);
-	while (*str != '\0')
-	{
-		_putchar(*str++);
-	}
+	write(1, str, _strlen(str));
 	return (1);
 }
 
@@ -147,4 +144,30 @@ char	*_memcpy(char *dest, char *src, unsigned int n)
 		++i;
 	}
 	return (dest);
+}
+
+/**
+ * rev_string - reverse a string
+ * @s: the string to reverse
+ *
+ **/
+void	rev_string(char *s)
+{
+	char *sr;
+	char c;
+
+	sr = s;
+	if (!s)
+		return;
+	while (*sr)
+		++sr;
+	--sr;
+	while (s < sr && *s)
+	{
+		c = *s;
+		*s = *sr;
+		*sr = c;
+		++s;
+		--sr;
+	}
 }

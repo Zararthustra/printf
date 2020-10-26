@@ -3,6 +3,7 @@
 /**
   * print_percent - print a percent
   * @cur_arg: the current av arg
+  * @ult: the ultimate string
   **/
 void	print_percent(va_list cur_arg, char **ult)
 {
@@ -13,6 +14,7 @@ void	print_percent(va_list cur_arg, char **ult)
 /**
   * print_s - print a string
   * @cur_arg: the current av arg
+  * @ult: the ultimate string
   **/
 void	print_s(va_list cur_arg, char **ult)
 {
@@ -20,8 +22,28 @@ void	print_s(va_list cur_arg, char **ult)
 }
 
 /**
+  * print_r - print a string in reverse
+  * @cur_arg: the current av arg
+  * @ult: the ultimate string
+  **/
+void	print_r(va_list cur_arg, char **ult)
+{
+	char	*s;
+	char	*r;
+	int	l;
+
+	s = va_arg(cur_arg, char *);
+	l = _strlen(s);
+	r = malloc(l + 1);
+	_strncpy(r, s, l + 1);
+	rev_string(r);
+	*ult = concat_free(*ult, r, 2);
+}
+
+/**
   * print_c - print a char
   * @cur_arg: the current av arg
+  * @ult: the ultimate string
   **/
 void	print_c(va_list cur_arg, char **ult)
 {
@@ -40,28 +62,8 @@ void	print_c(va_list cur_arg, char **ult)
 
 /**
  *
- *
+  * @ult: the ultimate string
  */
-
-int nb_len(long int nb)
-{
-	int len;
-
-	len = 0;
-	if (nb < 0)
-		len = len + 1;
-	while (nb != 0)
-	{
-		nb = nb / 10;
-		len++;
-	}
-	return (len);
-}
-
-/**
- *
- */
-
 void	print_int(va_list cur_arg, char **ult)
 {
 	char *s;
@@ -70,7 +72,7 @@ void	print_int(va_list cur_arg, char **ult)
 	int len;
 
 	nb = va_arg(cur_arg, int);
-	len = nb_len(nb);
+	len = nb_len(nb, 10);
 	s = malloc(len + 1);
 	i = len - 1;
 	if (nb < 0)
@@ -78,6 +80,8 @@ void	print_int(va_list cur_arg, char **ult)
 		nb = -(nb);
 		s[0] = '-';
 	}
+	else if (nb == 0)
+		s[0] = '0';
 	while (nb != 0)
 	{
 		s[i] = (nb % 10) + '0';
@@ -88,3 +92,142 @@ void	print_int(va_list cur_arg, char **ult)
 	*ult = concat_free(*ult, s, 2);
 }
 
+/**
+  * print_u - print a unsigned int
+  * @cur_arg: the current av arg
+  * @ult: the ultimate string
+  **/
+void	print_u(va_list cur_arg, char **ult)
+{
+	char *s;
+	unsigned int nb;
+	int i;
+	int len;
+
+	nb = va_arg(cur_arg, unsigned int);
+	len = nb_len(nb, 10);
+	s = malloc(len + 1);
+	i = len - 1;
+	if (nb == 0)
+		s[0] = '0';
+	while (nb != 0)
+	{
+		s[i] = (nb % 10) + '0';
+		nb = nb / 10;
+		--i;
+	}
+	s[len] = '\0';
+	*ult = concat_free(*ult, s, 2);
+}
+
+/**
+  * print_o - print a unsigned int
+  * @cur_arg: the current av arg
+  * @ult: the ultimate string
+  **/
+void	print_o(va_list cur_arg, char **ult)
+{
+	char *s;
+	unsigned int nb;
+	int i;
+	int len;
+
+	nb = va_arg(cur_arg, unsigned int);
+	len = nb_len(nb, 8);
+	s = malloc(len + 1);
+	i = len - 1;
+	if (nb == 0)
+		s[0] = '0';
+	while (nb != 0)
+	{
+		s[i] = (nb % 8) + '0';
+		nb = nb / 8;
+		--i;
+	}
+	s[len] = '\0';
+	*ult = concat_free(*ult, s, 2);
+}
+
+/**
+  * print_x - print a int in hex
+  * @cur_arg: the current av arg
+  * @ult: the ultimate string
+  **/
+void	print_x(va_list cur_arg, char **ult)
+{
+	char *s;
+	unsigned int nb;
+	int i;
+	int len;
+
+	nb = va_arg(cur_arg, unsigned int);
+	len = nb_len(nb, 16);
+	s = malloc(len + 1);
+	i = len - 1;
+	if (nb == 0)
+		s[0] = '0';
+	while (nb != 0)
+	{
+		s[i] = i_to_hex(nb % 16, 'x');
+		nb = nb / 16;
+		--i;
+	}
+	s[len] = '\0';
+	*ult = concat_free(*ult, s, 2);
+}
+
+/**
+  * print_X - print a unsigned int
+  * @cur_arg: the current av arg
+  * @ult: the ultimate string
+  **/
+void	print_X(va_list cur_arg, char **ult)
+{
+	char *s;
+	unsigned int nb;
+	int i;
+	int len;
+
+	nb = va_arg(cur_arg, unsigned int);
+	len = nb_len(nb, 8);
+	s = malloc(len + 1);
+	i = len - 1;
+	if (nb == 0)
+		s[0] = '0';
+	while (nb != 0)
+	{
+		s[i] = i_to_hex(nb % 16, 'X');
+		nb = nb / 16;
+		--i;
+	}
+	s[len] = '\0';
+	*ult = concat_free(*ult, s, 2);
+}
+
+/**
+  * print_b - print a unsigned int
+  * @cur_arg: the current av arg
+  * @ult: the ultimate string
+  **/
+void	print_b(va_list cur_arg, char **ult)
+{
+	char *s;
+	unsigned int nb;
+	int i;
+	int len;
+
+	nb = va_arg(cur_arg, unsigned int);
+	len = nb_len(nb, 2);
+	s = malloc(len + 1);
+	i = len - 1;
+	if (nb == 0)
+		s[0] = '0';
+	while (nb != 0)
+	{
+		s[i] = (nb % 2) + '0';
+		nb = nb / 2;
+		--i;
+	}
+	s[len] = '\0';
+	*ult = concat_free(*ult, s, 2);
+}
