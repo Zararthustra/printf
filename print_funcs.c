@@ -5,10 +5,16 @@
   * @cur_arg: the current av arg
   * @ult: the ultimate string
   **/
-void	print_percent(va_list cur_arg, char **ult)
+int	print_percent(va_list cur_arg, char **ult)
 {
 	(void)cur_arg;
 	*ult = concat_free(*ult, "%", 1);
+	if (!(*ult))
+	{
+		_putstring("Malloc failed\n");
+		return (-1);
+	}
+	return (0);
 }
 
 /**
@@ -16,17 +22,23 @@ void	print_percent(va_list cur_arg, char **ult)
   * @cur_arg: the current av arg
   * @ult: the ultimate string
   **/
-void	print_s(va_list cur_arg, char **ult)
+int	print_s(va_list cur_arg, char **ult)
 {
 	*ult = concat_free(*ult, va_arg(cur_arg, char *), 1);
-}
+	if (!(*ult))
+	{
+		_putstring("Malloc failed\n");
+		return (-1);
+	}
+	return (0);
+}}
 
 /**
   * print_r - print a string in reverse
   * @cur_arg: the current av arg
   * @ult: the ultimate string
   **/
-void	print_r(va_list cur_arg, char **ult)
+int	print_r(va_list cur_arg, char **ult)
 {
 	char	*s;
 	char	*r;
@@ -35,9 +47,15 @@ void	print_r(va_list cur_arg, char **ult)
 	s = va_arg(cur_arg, char *);
 	l = _strlen(s);
 	r = malloc(l + 1);
+	if (!r)
+	{
+		_putstring("Malloc failed\n");
+		return (-1);
+	}
 	_strncpy(r, s, l + 1);
 	rev_string(r);
 	*ult = concat_free(*ult, r, 2);
+	return (0);
 }
 
 /**
@@ -45,7 +63,7 @@ void	print_r(va_list cur_arg, char **ult)
   * @cur_arg: the current av arg
   * @ult: the ultimate string
   **/
-void	print_c(va_list cur_arg, char **ult)
+int	print_c(va_list cur_arg, char **ult)
 {
 	char	c;
 	int	len;
@@ -55,16 +73,22 @@ void	print_c(va_list cur_arg, char **ult)
 	if (c)
 	{
 		*ult = _realloc(*ult, len, len + 2);
+		if (!(*ult))
+		{
+			_putstring("Malloc failed\n");
+			return (-1);
+		}
 		(*ult)[len] = c;
 		(*ult)[len + 1] = '\0';
 	}
+	return (0);
 }
 
 /**
  *
   * @ult: the ultimate string
  */
-void	print_int(va_list cur_arg, char **ult)
+int	print_int(va_list cur_arg, char **ult)
 {
 	char *s;
 	long int nb;
@@ -74,7 +98,11 @@ void	print_int(va_list cur_arg, char **ult)
 	nb = va_arg(cur_arg, int);
 	len = nb_len(nb, 10);
 	s = malloc(len + 1);
-	i = len - 1;
+	if (!s)
+	{
+		_putstring("Malloc failed\n");
+		return (-1);
+	}	i = len - 1;
 	if (nb < 0)
 	{
 		nb = -(nb);
@@ -90,6 +118,7 @@ void	print_int(va_list cur_arg, char **ult)
 	}
 	s[len] = '\0';
 	*ult = concat_free(*ult, s, 2);
+	return (0);
 }
 
 /**
@@ -97,7 +126,7 @@ void	print_int(va_list cur_arg, char **ult)
   * @cur_arg: the current av arg
   * @ult: the ultimate string
   **/
-void	print_u(va_list cur_arg, char **ult)
+int	print_u(va_list cur_arg, char **ult)
 {
 	char *s;
 	unsigned int nb;
@@ -107,7 +136,11 @@ void	print_u(va_list cur_arg, char **ult)
 	nb = va_arg(cur_arg, unsigned int);
 	len = nb_len(nb, 10);
 	s = malloc(len + 1);
-	i = len - 1;
+	if (!s)
+	{
+		_putstring("Malloc failed\n");
+		return (-1);
+	}	i = len - 1;
 	if (nb == 0)
 		s[0] = '0';
 	while (nb != 0)
@@ -118,6 +151,7 @@ void	print_u(va_list cur_arg, char **ult)
 	}
 	s[len] = '\0';
 	*ult = concat_free(*ult, s, 2);
+	return (0);
 }
 
 /**
@@ -125,7 +159,7 @@ void	print_u(va_list cur_arg, char **ult)
   * @cur_arg: the current av arg
   * @ult: the ultimate string
   **/
-void	print_o(va_list cur_arg, char **ult)
+int	print_o(va_list cur_arg, char **ult)
 {
 	char *s;
 	unsigned int nb;
@@ -135,7 +169,11 @@ void	print_o(va_list cur_arg, char **ult)
 	nb = va_arg(cur_arg, unsigned int);
 	len = nb_len(nb, 8);
 	s = malloc(len + 1);
-	i = len - 1;
+	if (!s)
+	{
+		_putstring("Malloc failed\n");
+		return (-1);
+	}	i = len - 1;
 	if (nb == 0)
 		s[0] = '0';
 	while (nb != 0)
@@ -146,6 +184,7 @@ void	print_o(va_list cur_arg, char **ult)
 	}
 	s[len] = '\0';
 	*ult = concat_free(*ult, s, 2);
+	return (0);
 }
 
 /**
@@ -153,7 +192,7 @@ void	print_o(va_list cur_arg, char **ult)
   * @cur_arg: the current av arg
   * @ult: the ultimate string
   **/
-void	print_x(va_list cur_arg, char **ult)
+int	print_x(va_list cur_arg, char **ult)
 {
 	char *s;
 	unsigned int nb;
@@ -163,7 +202,11 @@ void	print_x(va_list cur_arg, char **ult)
 	nb = va_arg(cur_arg, unsigned int);
 	len = nb_len(nb, 16);
 	s = malloc(len + 1);
-	i = len - 1;
+	if (!s)
+	{
+		_putstring("Malloc failed\n");
+		return (-1);
+	}	i = len - 1;
 	if (nb == 0)
 		s[0] = '0';
 	while (nb != 0)
@@ -174,6 +217,7 @@ void	print_x(va_list cur_arg, char **ult)
 	}
 	s[len] = '\0';
 	*ult = concat_free(*ult, s, 2);
+	return (0);
 }
 
 /**
@@ -191,6 +235,11 @@ void	print_X(va_list cur_arg, char **ult)
 	nb = va_arg(cur_arg, unsigned int);
 	len = nb_len(nb, 8);
 	s = malloc(len + 1);
+	if (!s)
+	{
+		_putstring("Malloc failed\n");
+		return (-1);
+	}
 	i = len - 1;
 	if (nb == 0)
 		s[0] = '0';
@@ -202,6 +251,7 @@ void	print_X(va_list cur_arg, char **ult)
 	}
 	s[len] = '\0';
 	*ult = concat_free(*ult, s, 2);
+	return (0);
 }
 
 /**
@@ -209,7 +259,7 @@ void	print_X(va_list cur_arg, char **ult)
   * @cur_arg: the current av arg
   * @ult: the ultimate string
   **/
-void	print_b(va_list cur_arg, char **ult)
+int	print_b(va_list cur_arg, char **ult)
 {
 	char *s;
 	unsigned int nb;
@@ -219,6 +269,11 @@ void	print_b(va_list cur_arg, char **ult)
 	nb = va_arg(cur_arg, unsigned int);
 	len = nb_len(nb, 2);
 	s = malloc(len + 1);
+	if (!s)
+	{
+		_putstring("Malloc failed\n");
+		return (-1);
+	}
 	i = len - 1;
 	if (nb == 0)
 		s[0] = '0';
@@ -230,4 +285,5 @@ void	print_b(va_list cur_arg, char **ult)
 	}
 	s[len] = '\0';
 	*ult = concat_free(*ult, s, 2);
+	return (0);
 }
