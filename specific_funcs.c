@@ -95,9 +95,9 @@ char	*concat_free(char *s1, char *s2, int select)
 }
 
 /**
- * i_to_hex - convert int to hexadecimal
+ * i_to_hex - convert char to hexadecimal
  * @i: int to convert
- * @x: char to convert
+ * @x: char selector
  * Return: converted int
  */
 char	i_to_hex(int i, char x)

@@ -28,6 +28,7 @@ char	i_to_hex(int i, char x);
 int	nb_len(long int nb, int base);
 
 int	print_s(va_list cur_arg, char **ult);
+int	print_S(va_list cur_arg, char **ult);
 int	print_r(va_list cur_arg, char **ult);
 int	print_c(va_list cur_arg, char **ult);
 int	print_percent(va_list cur_arg, char **ult);

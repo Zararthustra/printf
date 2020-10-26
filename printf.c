@@ -48,7 +48,7 @@ int	_printf(const char *format, ...)
 	int		i;
 	fspec_t		val_fspec[] = {{'d', print_int}, {'i', print_int},
 				{'c', print_c}, {'s', print_s},
-				{'%', print_percent},
+				{'S', print_S}, {'%', print_percent},
 				{'r', print_r},
 				{'u', print_u},
 				{'o', print_o},
