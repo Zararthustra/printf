@@ -24,13 +24,18 @@ int w_fspec(const char *format, fspec_t val_fspec[],
 va_list cur_arg, char **ult);
 char	*concat_sbloc(char *ult, const char *rest, int *i);
 char	*concat_free(char *s1, char *s2, int select);
+char	i_to_hex(int i, char x);
+int	nb_len(long int nb, int base);
 
 void	print_s(va_list cur_arg, char **ult);
 void	print_r(va_list cur_arg, char **ult);
 void	print_c(va_list cur_arg, char **ult);
 void	print_percent(va_list cur_arg, char **ult);
-int	nb_len(long int nb);
 void	print_int(va_list cur_arg, char **ult);
+void	print_u(va_list cur_arg, char **ult);
+void	print_o(va_list cur_arg, char **ult);
+void	print_x(va_list cur_arg, char **ult);
+void	print_X(va_list cur_arg, char **ult);
 
 int	_putchar(char a);
 int	_putstring(char *str);

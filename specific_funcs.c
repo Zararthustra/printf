@@ -6,7 +6,7 @@
  *
  * Return: the len of nb (+1 for minus sign)
  */
-int nb_len(long int nb)
+int nb_len(long int nb, int base)
 {
 	int len;
 
@@ -15,7 +15,7 @@ int nb_len(long int nb)
 		len = len + 1;
 	while (nb != 0)
 	{
-		nb = nb / 10;
+		nb = nb / base;
 		len++;
 	}
 	return (len);
@@ -86,4 +86,18 @@ char	*concat_free(char *s1, char *s2, int select)
 		free(s2);
 	}
 	return (cc);
+}
+
+char	i_to_hex(int i, char x)
+{
+	if (i >= 0 && i <= 9)
+		return (i + '0');
+	else if (i >= 10 && i <= 15)
+	{
+		if (x == 'X')
+			return ('A' + i - 10);
+		if (x == 'x')
+			return ('a' + i - 10);
+	}
+	return (0);
 }

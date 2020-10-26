@@ -72,7 +72,7 @@ void	print_int(va_list cur_arg, char **ult)
 	int len;
 
 	nb = va_arg(cur_arg, int);
-	len = nb_len(nb);
+	len = nb_len(nb, 10);
 	s = malloc(len + 1);
 	i = len - 1;
 	if (nb < 0)
@@ -92,3 +92,114 @@ void	print_int(va_list cur_arg, char **ult)
 	*ult = concat_free(*ult, s, 2);
 }
 
+/**
+  * print_u - print a unsigned int
+  * @cur_arg: the current av arg
+  * @ult: the ultimate string
+  **/
+void	print_u(va_list cur_arg, char **ult)
+{
+	char *s;
+	unsigned int nb;
+	int i;
+	int len;
+
+	nb = va_arg(cur_arg, unsigned int);
+	len = nb_len(nb, 10);
+	s = malloc(len + 1);
+	i = len - 1;
+	if (nb == 0)
+		s[0] = '0';
+	while (nb != 0)
+	{
+		s[i] = (nb % 10) + '0';
+		nb = nb / 10;
+		--i;
+	}
+	s[len] = '\0';
+	*ult = concat_free(*ult, s, 2);
+}
+
+/**
+  * print_o - print a unsigned int
+  * @cur_arg: the current av arg
+  * @ult: the ultimate string
+  **/
+void	print_o(va_list cur_arg, char **ult)
+{
+	char *s;
+	unsigned int nb;
+	int i;
+	int len;
+
+	nb = va_arg(cur_arg, unsigned int);
+	len = nb_len(nb, 8);
+	s = malloc(len + 1);
+	i = len - 1;
+	if (nb == 0)
+		s[0] = '0';
+	while (nb != 0)
+	{
+		s[i] = (nb % 8) + '0';
+		nb = nb / 8;
+		--i;
+	}
+	s[len] = '\0';
+	*ult = concat_free(*ult, s, 2);
+}
+
+/**
+  * print_x - print a int in hex
+  * @cur_arg: the current av arg
+  * @ult: the ultimate string
+  **/
+void	print_x(va_list cur_arg, char **ult)
+{
+	char *s;
+	unsigned int nb;
+	int i;
+	int len;
+
+	nb = va_arg(cur_arg, unsigned int);
+	len = nb_len(nb, 16);
+	s = malloc(len + 1);
+	i = len - 1;
+	if (nb == 0)
+		s[0] = '0';
+	while (nb != 0)
+	{
+		s[i] = i_to_hex(nb % 16, 'x');
+		nb = nb / 16;
+		--i;
+	}
+	s[len] = '\0';
+	*ult = concat_free(*ult, s, 2);
+}
+
+/**
+  * print_X - print a unsigned int
+  * @cur_arg: the current av arg
+  * @ult: the ultimate string
+  **/
+void	print_X(va_list cur_arg, char **ult)
+{
+	char *s;
+	unsigned int nb;
+	int i;
+	int len;
+
+	nb = va_arg(cur_arg, unsigned int);
+	len = nb_len(nb, 8);
+	s = malloc(len + 1);
+	i = len - 1;
+	if (nb == 0)
+		s[0] = '0';
+	while (nb != 0)
+	{
+		s[i] = i_to_hex(nb % 16, 'X');
+		nb = nb / 16;
+		--i;
+	}
+	s[len] = '\0';
+	*ult = concat_free(*ult, s, 2);
+}
