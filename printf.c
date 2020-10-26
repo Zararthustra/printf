@@ -24,7 +24,8 @@ int	w_fspec(const char *format, fspec_t val_fspec[], va_list cur_arg, char **ult
 		{
 			if (*(format + 1) == val_fspec[j].c)
 			{
-				val_fspec[j].f(cur_arg, ult);
+				if(val_fspec[j].f(cur_arg, ult) == -1)
+					return (-1);
 				return (1);
 			}
 			++j;
@@ -73,6 +74,7 @@ int	_printf(const char *format, ...)
 			if (w_fspec(format + i, val_fspec, cur_arg, &ult) == -1)
 			{
 				_printf("Error\n");
+				free(ult);
 				return (-1);
 			}
 			i += 2;
