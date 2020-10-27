@@ -11,8 +11,6 @@ char	*rot13(char *s)
 	char	r[] = "NOPQRSTUVWXYZABCDEFGHIJKLM******nopqrstuvwxyzabcdefghijklm";
 
 	i = 0;
-	if (!s)
-		return (0);
 	while (s[i])
 	{
 		if ((s[i] >= 'A' &&  s[i] <= 'Z') || (s[i] >= 'a' && s[i] <= 'z'))

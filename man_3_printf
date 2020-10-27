@@ -19,7 +19,7 @@ The format string is composed of zero or more arguments which are converted. Eac
 A character that specifies the type of conversion to be applied. The conversion specifiers and their meanings are:
 .TP
 .B
-d, i 
+d, i
 The \fIint\fP argument is converted to signed decimal notation.
 .TP
 .B
