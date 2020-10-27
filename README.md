@@ -1,4 +1,5 @@
 # _printf
+![image](https://user-images.githubusercontent.com/70105093/97355909-e9687f00-1897-11eb-8c76-40b033dc01b6.png)
 
 _printf is a challenge project at [Holberton School](, where we have to code our own printf(3) in C in 4.5 days 
 
