@@ -26,15 +26,14 @@ The format string is composed of zero or more arguments which are converted. Eac
 
 
 ## Example
-
-**To print :**
-       *Hello, welcome to **Holberton School**. We are from the **C** **13** cohort and we hope getting **200%** for the printf project !*
-
-       #include "holberton.h"
+```
+#include "holberton.h" 
        
-              _printf("Hello,  welcome  to  %s.  We are from the cohort %c %d and we hope getting 200%% for the
-              printf project !", "Holberton School", 'C', 13);
-              
+      _printf("Hello,  welcome  to  %s.  We are from the cohort %c %d and we hope getting 200%% for the printf project !", "Holberton School", 'C', 13);
+```
+```       
+       $ Hello, welcome to Holberton School. We are from the C 13 cohort and we hope getting 200% for the printf project !
+```       
 ## Project Requirements
 
 - We were not allowed to use global variables
@@ -47,3 +46,7 @@ The format string is composed of zero or more arguments which are converted. Eac
   - va_end (man 3 va_end)
   - va_copy (man 3 va_copy)
   - va_arg (man 3 va_arg)
+  
+  
+  
+**By [T-SN](https://github.com/TS-N) and [Zararthustra](https://github.com/Zararthustra)**
