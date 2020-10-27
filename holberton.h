@@ -39,6 +39,7 @@ int	print_o(va_list cur_arg, char **ult);
 int	print_x(va_list cur_arg, char **ult);
 int	print_X(va_list cur_arg, char **ult);
 int	print_b(va_list cur_arg, char **ult);
+int	print_R(va_list cur_arg, char **ult);
 
 int	_putchar(char a);
 int	_putstring(char *str);
@@ -48,5 +49,7 @@ char	*_strncpy(char *dest, char *src, int n);
 void	*_realloc(void *ptr, unsigned int os, unsigned int ns);
 char	*_memcpy(char *dest, char *src, unsigned int n);
 void	rev_string(char *s);
+char	*rot13(char *s);
+char	*_strdup(char *str);
 
 #endif

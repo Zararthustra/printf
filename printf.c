@@ -50,7 +50,7 @@ int	_printf(const char *format, ...)
 				{'c', print_c}, {'s', print_s},
 				{'S', print_S}, {'%', print_percent},
 				{'r', print_r}, {'p', print_p},
-				{'u', print_u},
+				{'u', print_u}, {'R', print_R},
 				{'o', print_o},
 				{'x', print_x},
 				{'X', print_X},

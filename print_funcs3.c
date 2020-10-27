@@ -64,7 +64,7 @@ int	print_S(va_list cur_arg, char **ult)
  * print_p - print address
  * @cur_arg: current arg
  * @ult: ultimaaate string
- * Return: address
+ * Return: -1 if error, 0 toherwise
  */
 int	print_p(va_list cur_arg, char **ult)
 {
@@ -100,6 +100,24 @@ int	print_p(va_list cur_arg, char **ult)
 		--i;
 	}
 	s[len] = '\0';
+	*ult = concat_free(*ult, s, 2);
+	if (!(*ult))
+	{
+		_putstring("Malloc failed\n");
+		return (-1);
+	}
+	return (0);
+}
+
+
+int	print_R(va_list cur_arg, char **ult)
+{
+	char	*s;
+
+	s = _strdup(va_arg(cur_arg, char *));
+	if (!s)
+		return (-1);
+	s = rot13(s);
 	*ult = concat_free(*ult, s, 2);
 	if (!(*ult))
 	{
