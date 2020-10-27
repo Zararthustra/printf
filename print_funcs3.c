@@ -18,8 +18,8 @@ int	_strspelen(char *s)
 }
 
 /**
-  * print_S -
-  **/
+ * print_S -
+ **/
 int	print_S(va_list cur_arg, char **ult)
 {
 	char	*s;
@@ -61,10 +61,51 @@ int	print_S(va_list cur_arg, char **ult)
 }
 
 /**
- *
- *
- *
+ * print_p - print address
+ * @cur_arg: current arg
+ * @ult: ultimaaate string
+ * Return: address
  */
 int	print_p(va_list cur_arg, char **ult)
 {
+	unsigned long nb;
+	char *s;
+	char x;
+	int i, len;
+
+	nb = va_arg(cur_arg, unsigned long);
+	len = nb_len(nb, 16) + 2;
+	if (nb == 0)
+	{
+		*ult = concat_free(*ult, "(nil)", 1);
+		if (!(*ult))
+		{
+			_putstring("Malloc failed\n");
+			return (-1);
+		}
+		return (0);
+	}
+	s = malloc(len + 1);
+	if (!s)
+	{
+		_putstring("Malloc failed\n");
+		return (-1);
+	}
+	s[0] = '0';
+	s[1] = 'x';
+	i = len - 1;
+	while (nb != 0 && i >= 2)
+	{
+		s[i] = i_to_hex(nb % 16, 'x');
+		nb = nb / 16;
+		--i;
+	}
+	s[len] = '\0';
+	*ult = concat_free(*ult, s, 2);
+	if (!(*ult))
+	{
+		_putstring("Malloc failed\n");
+		return (-1);
+	}
+	return (0);
 }
