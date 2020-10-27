@@ -28,6 +28,8 @@ int	print_S(va_list cur_arg, char **ult)
 	int	i;
 
 	s = va_arg(cur_arg, char *);
+	if (!s)
+		return (-1);
 	l = _strspelen(s);
 	r = malloc(l + 1);
 	if (!r)

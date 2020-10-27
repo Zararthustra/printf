@@ -175,7 +175,7 @@ int	print_X(va_list cur_arg, char **ult)
 	int len;
 
 	nb = va_arg(cur_arg, unsigned int);
-	len = nb_len(nb, 8);
+	len = nb_len(nb, 16);
 	s = malloc(len + 1);
 	if (!s)
 	{
