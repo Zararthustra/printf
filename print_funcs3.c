@@ -74,7 +74,7 @@ int	print_p(va_list cur_arg, char **ult)
 	char *s;
 	int i, len;
 
-	nb = va_arg(cur_arg, unsigned long);
+	nb = (unsigned long)va_arg(cur_arg, void *);
 	len = nb_len(nb, 16) + 2;
 	if (nb == 0)
 	{
