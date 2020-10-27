@@ -36,7 +36,7 @@ The  \fIconst char *\fP argument is expected to be a pointer to an array of char
 .TP
 .B
 S
-Similar to s, prints the non printable characters (0 < ASCII value < 32 or >= 127) are printed this way: \\x, followed by the ASCII code value in hexadecimal.
+Similar to \fBs\fP, prints the non printable characters (0 < ASCII value < 32 or >= 127) are printed this way: \\x, followed by the ASCII code value in hexadecimal.
 .TP
 .B
 p
@@ -48,11 +48,11 @@ The \fIunsigned int\fP argument is converted to binary.
 .TP
 .B
 r
-The string is printed in reverse.
+Similar to \fBs\fP, the string is printed in reverse.
 .TP
 .B
 R
-The string is converted into ROT13.
+Similar to \fBs\fP, the string is converted into ROT13.
 .TP
 .B
 %
