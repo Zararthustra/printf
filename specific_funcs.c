@@ -6,13 +6,18 @@
  * @base: 10 for int, 8 octal, 16 hex, 2 bin
  * Return: the len of nb (+1 for minus sign)
  */
-int nb_len(long int nb, int base)
+int nb_len(long int n, int base)
 {
 	int len;
+	unsigned long nb;
 
 	len = 0;
+	nb = n;
 	if (nb <= 0)
+	{
+		nb = -n;
 		len = len + 1;
+	}
 	while (nb != 0)
 	{
 		nb = nb / base;
