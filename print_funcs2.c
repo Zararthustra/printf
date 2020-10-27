@@ -26,9 +26,17 @@ int	print_percent(va_list cur_arg, char **ult)
   **/
 int	print_s(va_list cur_arg, char **ult)
 {
-	*ult = concat_free(*ult, va_arg(cur_arg, char *), 1);
+	char	*s;
+
+	s = va_arg(cur_arg, char *);
+	if (!s)
+		s = "(null)";
+	*ult = concat_free(*ult, s, 1);
 	if (!(*ult))
+	{
+		_putstring("Malloc failed\n");
 		return (-1);
+	}
 	return (0);
 }
 

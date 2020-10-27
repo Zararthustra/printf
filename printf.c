@@ -19,7 +19,7 @@ int w_fspec(const char *format, fspec_t val_fspec[], va_list cur_arg, char **u)
 	if (*format == '%')
 	{
 		if (*(format + 1) == 0)
-			return (-1);
+			return (1);
 		j = 0;
 		while (val_fspec[j].c != 0)
 		{

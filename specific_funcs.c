@@ -79,8 +79,6 @@ char	*concat_free(char *s1, char *s2, int select)
 	int	l1;
 	int	l2;
 
-	if (!s2)
-		return (0);
 	l1 = _strlen(s1);
 	l2 = _strlen(s2);
 	cc = malloc(l1 + l2 + 1);
