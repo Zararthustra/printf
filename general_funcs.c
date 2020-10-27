@@ -68,25 +68,21 @@ char	*create_array(unsigned int size, char c)
 }
 
 /**
- * _strncpy - copy n char of a source string to dest
- *@src: the source string
- *@dest: the destination string
- * @n: the number of elements to copy
- *
- *Return: pointer to the dest string
+ * _strcpy - copy a source string to dest including null terminator
+ * @src: the source string
+ * @dest: the destination string
+ * Return: pointer to the dest string
  **/
-char	*_strncpy(char *dest, char *src, int n)
+char	*_strcpy(char *dest, char *src)
 {
-	int	i = 0;
+	int	i;
 
-	if (!dest || !src)
-		return (dest);
-	while (i < n)
+	i = 0;
+	while (dest + i && src[i])
 	{
-		dest[i] = *src;
-		if (*src)
-			++src;
+		dest[i] = src[i];
 		++i;
 	}
+	dest[i] = src[i];
 	return (dest);
 }
