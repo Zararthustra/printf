@@ -63,6 +63,29 @@ int	print_S(va_list cur_arg, char **ult)
 }
 
 /**
+ * nb_len_p - calculate the len of a nb
+ * @nb: number
+ * @base: 10 for int, 8 octal, 16 hex, 2 bin
+ * Return: the len of nb (+1 for minus sign)
+ */
+int nb_len_p(unsigned long int nb, int base)
+{
+	int len;
+
+	len = 0;
+	if (nb == 0)
+	{
+		len = len + 1;
+	}
+	while (nb != 0)
+	{
+		nb = nb / base;
+		len++;
+	}
+	return (len);
+}
+
+/**
  * print_p - print address
  * @cur_arg: current arg
  * @ult: ultimaaate string
@@ -75,7 +98,7 @@ int	print_p(va_list cur_arg, char **ult)
 	int i, len;
 
 	nb = (unsigned long int)va_arg(cur_arg, void *);
-	len = nb_len(nb, 16) + 2;
+	len = nb_len_p(nb, 16) + 2;
 	if (nb == 0)
 	{
 		*ult = concat_free(*ult, "(nil)", 1);
