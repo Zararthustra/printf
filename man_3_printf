@@ -47,6 +47,14 @@ b
 The \fIunsigned int\fP argument is converted to binary.
 .TP
 .B
+r
+The string is printed in reverse.
+.TP
+.B
+R
+The string is converted into ROT13.
+.TP
+.B
 %
 A '%' is written.  No argument is converted. The complete conversion specification is '%%'.
 .SH BUGS
