@@ -2,45 +2,57 @@
 .SH NAME
 _printf - formatted output conversion
 .SH SYNOPSIS
-.B #include "holberton.h"
+.B #include \^"holberton.h\^"
 
-.B int _printf(const char *format, ...);
+.B int _printf(const char *\fIformat\fP, ...);
+
 .SH DESCRIPTION
-
+.PP
 Holberton project. Coding the (almost) same function as the original printf function.
-
-.B Return value
-
-If success, returns the number of characters printed (excluding the null byte).
-
-.B Format
-
+.SS Return value
+.PP
+If success, returns the number of characters printed (excluding the null byte), or -1 if error.
+.SS Format
+.PP
 The format string is composed of zero or more arguments which are converted. Each conversion specification is introduced by the character %, and ends with a conversion  specifier.
-
-.B Conversion specifier
-
-.B d, i - print an integer
-
-.B c - print a character
-
-.B s - print a string
-
-.B o - print an octal
-
-.B u - print an unsigned decimal
-
-.B x - print an hexadecimal (lowercase)
-
-.B X - print an hexadecimal (uppercase)
-
-.B p - print a pointer
-
-.B % - print a percent sign
-
+.SS The conversion specifier
+A character that specifies the type of conversion to be applied. The conversion specifiers and their meanings are:
+.TP
+.B
+d, i 
+The \fIint\fP argument is converted to signed decimal notation.
+.TP
+.B
+o, u, x, X
+The \fIunsigned int\fP is converted to unsigned octal (\fBo\fP), unsigned decimal (\fBu\fP), or unsigned hexadecimal (\fBx\fP and \fBX\fP) notation. The letters \fBabcdef\fP are used for \fBx\fP conversions; the letters \fBABCDEF\fP are used for \fBX\fP conversion.
+.TP
+.B
+c
+The \fIint\fP argument is converted to an \fIunsigned char\fP, and the resulting character is written.
+.TP
+.B
+s
+The  \fIconst char *\fP argument is expected to be a pointer to an array of character type (pointer to a string).  Characters from the array  are written up to (but not including) a terminating null byte ('\0').
+.TP
+.B
+S
+Similar to s, prints the non printable characters (0 < ASCII value < 32 or >= 127) are printed this way: \\x, followed by the ASCII code value in hexadecimal.
+.TP
+.B
+p
+The \fIvoid *\fP pointer argument is printed in hexadecimal.
+.TP
+.B
+b
+The \fIunsigned int\fP argument is converted to binary.
+.TP
+.B
+%
+A '%' is written.  No argument is converted.  The complete conversion specification is '%%'.
 .SH BUGS
 
 No bugs.
 
 .SH AUTHOR
 
-Tanguy Sauraneri & Arthur Mayer
+Tanguy Saura-Neri & Arthur Mayer
