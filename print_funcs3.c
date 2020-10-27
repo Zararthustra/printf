@@ -1,5 +1,10 @@
 #include "holberton.h"
 
+/**
+ * _strspelen - get the length
+ * @s: string
+ * Return: length of string
+ */
 int	_strspelen(char *s)
 {
 	int	l;
@@ -18,7 +23,10 @@ int	_strspelen(char *s)
 }
 
 /**
- * print_S -
+ * print_S - print unprintable
+ * @cur_arg: current argument
+ * @ult: ultimate string
+ * Return: -1 if error, 0 otherwise
  **/
 int	print_S(va_list cur_arg, char **ult)
 {
@@ -134,7 +142,12 @@ int	print_p(va_list cur_arg, char **ult)
 	return (0);
 }
 
-
+/**
+ * print_R - print string in rot13
+ * @cur_arg: current argument
+ * @ult: ultimate string
+ * Return: -1 if error, 0 otherwise
+ **/
 int	print_R(va_list cur_arg, char **ult)
 {
 	char	*s;
