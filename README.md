@@ -1,7 +1,6 @@
-# _printf
-![image](https://user-images.githubusercontent.com/70105093/97355909-e9687f00-1897-11eb-8c76-40b033dc01b6.png)
+# **_printf**
 
-_printf is a challenge project at [Holberton School](, where we have to code our own printf(3) in C in 4.5 days 
+_printf is a challenge project at Holberton School, where we have to code our own printf(3) in C in 4.5 days 
 
 ## Usage
 
@@ -28,3 +27,23 @@ The format string is composed of zero or more arguments which are converted. Eac
 
 ## Example
 
+**To print :**
+       *Hello, welcome to **Holberton School**. We are from the **C** **13** cohort and we hope getting **200%** for the printf project !*
+
+       #include "holberton.h"
+       
+              _printf("Hello,  welcome  to  %s.  We are from the cohort %c %d and we hope getting 200%% for the
+              printf project !", "Holberton School", 'C', 13);
+              
+## Project Requirements
+
+- We were not allowed to use global variables
+- No more than 5 functions per file
+- Authorized functions :
+  - write (man 2 write)
+  - malloc (man 3 malloc)
+  - free (man 3 free)
+  - va_start (man 3 va_start)
+  - va_end (man 3 va_end)
+  - va_copy (man 3 va_copy)
+  - va_arg (man 3 va_arg)
