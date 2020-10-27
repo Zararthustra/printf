@@ -35,6 +35,6 @@ char	*_strdup(char *str)
 	dup = malloc(_strlen(str) + 1);
 	if (!dup)
 		return (0);
-	*dup = _strcpy(dup, str);
+	dup = _strcpy(dup, str);
 	return (dup);
 }

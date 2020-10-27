@@ -51,5 +51,6 @@ char	*_memcpy(char *dest, char *src, unsigned int n);
 void	rev_string(char *s);
 char	*rot13(char *s);
 char	*_strdup(char *str);
+char	*_strcpy(char *dest, char *src);
 
 #endif
