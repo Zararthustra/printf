@@ -70,7 +70,6 @@ int	print_p(va_list cur_arg, char **ult)
 {
 	unsigned long nb;
 	char *s;
-	char x;
 	int i, len;
 
 	nb = va_arg(cur_arg, unsigned long);
