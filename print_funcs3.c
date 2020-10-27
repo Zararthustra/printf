@@ -76,7 +76,6 @@ int	print_p(va_list cur_arg, char **ult)
 
 	nb = (unsigned long int)va_arg(cur_arg, void *);
 	len = nb_len(nb, 16) + 2;
-	printf("len = %d\n", len);
 	if (nb == 0)
 	{
 		*ult = concat_free(*ult, "(nil)", 1);
